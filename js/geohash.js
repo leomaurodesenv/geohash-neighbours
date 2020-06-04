@@ -11,3 +11,11 @@
 class Geohash {
 	nome = "Test"
 }
+
+/* 
+ * if is Node.js ~ 
+ * module.exports 
+ */
+try {
+    module.exports = Geohash;
+} catch(err) {}
