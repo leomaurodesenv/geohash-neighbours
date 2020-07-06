@@ -1,6 +1,6 @@
 # geohash-neighbours
 
-[![MIT license](https://img.shields.io/badge/MIT-license-blue.svg)](LICENSE.md)
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE.md)
 [![GitHub](https://img.shields.io/badge/Code-GitHub-yellow.svg)](https://github.com/leomaurodesenv/geohash-neighbours)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/9072bb5427ca4ce091ad7f169d3ad901)](https://www.codacy.com/manual/leomaurodesenv/geohash-neighbours?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=leomaurodesenv/geohash-neighbours&amp;utm_campaign=Badge_Grade)
 
