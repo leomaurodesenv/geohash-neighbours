@@ -8,21 +8,13 @@
  * @package geohash-neighbour
  * @access public
  */
+const baseUrl = "https://www.openstreetmap.org/export/embed.html";
+const baseFixed = 14;
+
+
 class OpenStreetMap {
 
 	/**
-     * @method module:OpenStreetMap
-     * Constructor of class
-     * @instance
-     * @access public
-     * @return {this}
-     */
-	constructor() {
-		this.baseUrl = "https://www.openstreetmap.org/export/embed.html";
-		this.baseFixed = 14;
-	}
-
-	 /**
      * @method module:OpenStreetMap::getMapSource
      * Return the map source
      * @arg {Float} latitude 		Latitude center
@@ -32,12 +24,12 @@ class OpenStreetMap {
      * @access public
      * @return {String}
      */
-	getMapSource(latitude, longitude, latDistance, longDistance) {
-		return this.baseUrl + "?bbox="
-			+ (longitude + longDistance).toFixed(this.baseFixed) + "%2C"
-			+ (latitude + latDistance).toFixed(this.baseFixed) + "%2C" 
-			+ (longitude - longDistance).toFixed(this.baseFixed) + "%2C"
-			+ (latitude - latDistance).toFixed(this.baseFixed) + "&amp;layer=mapnik";
+	static getMapSource(latitude, longitude, latDistance, longDistance) {
+		return baseUrl + "?bbox="
+			+ (longitude + longDistance).toFixed(baseFixed) + "%2C"
+			+ (latitude + latDistance).toFixed(baseFixed) + "%2C" 
+			+ (longitude - longDistance).toFixed(baseFixed) + "%2C"
+			+ (latitude - latDistance).toFixed(baseFixed) + "&amp;layer=mapnik";
 	}
 
 	/**
@@ -47,7 +39,7 @@ class OpenStreetMap {
      * @access public
      * @return {String}
      */
-	getIframe(width, height, id, mapSource) {
+	static getIframe(width, height, id, mapSource) {
 		/* creating element */
 		var elem = document.createElement("iframe");
 		elem.setAttribute("width", width);

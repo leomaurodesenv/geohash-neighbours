@@ -28,7 +28,7 @@
         <div class="row">
         <div class="col-sm-8 col-md-7 py-4">
             <h4 class="text-white">About</h4>
-          <p class="text-muted">... TODO ...</p>
+          <p class="text-muted">Geohashing - Getting its neighbours in O(1) demonstration</p>
         </div>
         <div class="col-sm-4 offset-md-1 py-4">
             <h4 class="text-white">Contact</h4>
@@ -43,7 +43,7 @@
     <div class="navbar navbar-dark bg-dark shadow-sm">
     <div class="container d-flex justify-content-between">
         <a href="#" class="navbar-brand d-flex align-items-center">
-            <strong>geohash-neighbour</strong>
+            <strong>geohash-neighbours</strong>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -59,7 +59,7 @@
         <span class="spinner">
             <svg class="bi bi-geo-alt" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
         </span>
-        <span id="status-message">Acquiring Your Location...</span>
+        <span id="status-message">Hashing your Location...</span>
     </div>
 </section>
 
@@ -67,10 +67,52 @@
     <div class="container">
         <h4>Map</h4>
         <div class="row">
-            <div class="col-md-8">
-                <iframe id="map" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+            <div id="mapContainer" class="col-md-8">Map</div>
+            <div class="col-md-4">
+                <p class="font-weight-bold">Details</p>
+                <div class="form-group">
+                    <label for="mapInputLatitude">Latitude / Longitude</label>
+                    <input type="text" class="form-control" id="mapInputLatitude" placeholder="-22.0217" value="-22.0217">
+                    <input type="text" class="form-control" id="mapInputLongitude" placeholder="-47.9019" value="-47.9019">
+                </div>
+                <div class="form-group">
+                    <label for="mapInputSize">Size</label>
+                    <select class="form-control" id="mapInputSize">
+                        <option value="1">size 1</option>
+                        <option value="2">size 2</option>
+                        <option value="3">size 3</option>
+                        <option value="4">size 4</option>
+                        <option value="5" selected="selected">size 5</option>
+                        <option value="6">size 6</option>
+                        <option value="7">size 7</option>
+                        <option value="8">size 8</option>
+                        <option value="9">size 9</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-secondary" onclick="formHandler()">Calculate</button>
             </div>
-            <div class="col-md-4">b</div>
+            <div id="mapDetail" class="col-md-8" style="padding-top:10px;">
+                <p>Geohash: <span id="mapHash" class="text-monospace"></span></p>
+                <table class="table">
+                <tbody>
+                    <tr>
+                        <td id="mapHashNW" class="text-monospace">North West</td>
+                        <td id="mapHashN" class="text-monospace">North</td>
+                        <td id="mapHashNE" class="text-monospace">North East</td>
+                    </tr>
+                    <tr>
+                        <td id="mapHashW" class="text-monospace">West</td>
+                        <td id="mapHashC" class="text-monospace font-weight-bold">Center</td>
+                        <td id="mapHashE" class="text-monospace">East</td>
+                    </tr>
+                    <tr>
+                        <td id="mapHashSW" class="text-monospace">South West</td>
+                        <td id="mapHashS" class="text-monospace">South</td>
+                        <td id="mapHashSE" class="text-monospace">South East</td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </section>
@@ -79,7 +121,7 @@
 <!-- Footer -->
 <footer class="text-muted">
     <div class="container">
-        <p>Copyright © <a href="https://github.com/leomaurodesenv/geohash-neighbour" target="_blank">geohash-neighbour</a> - <a href="https://github.com/leomaurodesenv/" target="_blank">Leonardo Mauro</a></p>
+        <p>Copyright © <a href="https://github.com/leomaurodesenv/geohash-neighbours" target="_blank">geohash-neighbours</a> - <a href="https://github.com/leomaurodesenv/" target="_blank">Leonardo Mauro</a></p>
     </div>
 </footer>
 
